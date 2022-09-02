@@ -55,12 +55,45 @@ set number
 " Encoding
 set encoding=utf-8
 
-
-
 " Store info from no more than 100 files at a time, 9999 lines of text, 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
 
-" Automatically save and load folds
+" Leaders
+let mapleader = ","
+noremap <leader>w :w<cr>
+noremap <leader>s :CocSearch 
+noremap <leader>f :Files<cr>
+noremap <leader>d :NERDTreeToggle<cr>
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'pangloss/vim-javascript'    " JavaScript support
+Plug 'neoclide/coc.nvim' , { 'tag': '*', 'branch' : 'release' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'eslint/eslint'
+Plug 'preservim/nerdtree'
+Plug 'dense-analysis/ale'
+Plug 'EdenEast/nightfox.nvim', { 'tag': 'v1.0.0' }
+
+call plug#end()
+
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+let g:airline_powerline_fonts = 1
+let g:NERDTreeQuitOnOpen=1
+let g:airline_theme='onedark'
+:colorscheme nordfox
 
 
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 :imap ii <Esc>
