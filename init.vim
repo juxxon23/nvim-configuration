@@ -1,3 +1,6 @@
+" Mapleader definition
+let mapleader = ","
+
 " Set compatibility to Vim only.
 set nocompatible
 set nolist
@@ -17,10 +20,12 @@ set modelines=0
 
 " Automatically wrap text that extends beyond the screen length.
 set wrap
-" Vim's auto indentation feature does not work properly with text copied from outside of Vim. Press the <F2> key to toggle paste mode on/off.
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F2>
+
+" Allways copy to clipboard
+" set clipboard=unnamedplus
+
+" Limpiar resaltado al buscar con *
+nnoremap <Leader><space> :nohlsearch<CR>
 
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
 set textwidth=79
@@ -59,7 +64,6 @@ set encoding=utf-8
 set viminfo='100,<9999,s100
 
 " Leaders
-let mapleader = ","
 noremap <leader>w :w<cr>
 noremap <leader>s :CocSearch 
 noremap <leader>f :Files<cr>
@@ -76,7 +80,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'eslint/eslint'
 Plug 'preservim/nerdtree'
 Plug 'dense-analysis/ale'
-Plug 'EdenEast/nightfox.nvim', { 'tag': 'v1.0.0' }
+Plug 'EdenEast/nightfox.nvim'
 
 call plug#end()
 
@@ -97,3 +101,5 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 :imap ii <Esc>
+
+" reload init config :source $MYVIMRC
