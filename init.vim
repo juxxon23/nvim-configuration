@@ -24,7 +24,11 @@ set wrap
 " Allways copy to clipboard
 " set clipboard=unnamedplus
 
-" Limpiar resaltado al buscar con *
+" Shortcuts for copy/paste from clipboard
+vnoremap  <leader>y  "+y 
+nnoremap <leader>p "+p
+
+" Remove highlighting after use finding (*) command
 nnoremap <Leader><space> :nohlsearch<CR>
 
 " Uncomment below to set the max textwidth. Use a value corresponding to the width of your screen.
@@ -101,5 +105,6 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 :imap ii <Esc>
+
 
 " reload init config :source $MYVIMRC
